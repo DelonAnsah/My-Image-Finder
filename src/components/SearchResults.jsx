@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { BiZoomIn } from 'react-icons/bi'
+import React, { useState } from 'react';
+import { BiZoomIn } from 'react-icons/bi';
 
 const SearchResults = ({ images }) => {
   // Modal state
@@ -10,7 +10,7 @@ const SearchResults = ({ images }) => {
   const openModal = (img) => {
     setSelectedImage(img);
     setIsModalOpen(true);
-  }
+  };
 
   // Close modal
   const closeModal = () => {
@@ -21,13 +21,14 @@ const SearchResults = ({ images }) => {
   return (
     <>
       {/* Image Grid */}
-      <div className="grid grid-cols-3 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
         {images.map((img) => (
           <div key={img.id} className="relative group">
-            <img src={img.largeImageURL}
+            <img
+              src={img.largeImageURL}
               className="w-full h-64 object-cover cursor-pointer rounded-lg transition-transform duration-300 transform group-hover:scale-105"
               loading="lazy"
-              onClick={() => openModal(img)} 
+              onClick={() => openModal(img)}
             />
             <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="text-sm">{img.tags}</div>
@@ -60,7 +61,7 @@ const SearchResults = ({ images }) => {
         </div>
       )}
     </>
-  )
-}
+  );
+};
 
-export default SearchResults
+export default SearchResults;
